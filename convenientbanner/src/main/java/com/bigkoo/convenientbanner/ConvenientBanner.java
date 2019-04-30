@@ -48,7 +48,18 @@ public class ConvenientBanner<T> extends RelativeLayout {
     private AdSwitchTask adSwitchTask;
 
     public enum PageIndicatorAlign {
-        ALIGN_PARENT_LEFT, ALIGN_PARENT_RIGHT, CENTER_HORIZONTAL
+        /**
+         * 指示器在左
+         */
+        ALIGN_PARENT_LEFT,
+        /**
+         * 指示器在右
+         */
+        ALIGN_PARENT_RIGHT,
+        /**
+         * 指示器横向居中
+         */
+        CENTER_HORIZONTAL
     }
 
     public ConvenientBanner(Context context) {
@@ -61,7 +72,11 @@ public class ConvenientBanner<T> extends RelativeLayout {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ConvenientBanner);
         canLoop = a.getBoolean(R.styleable.ConvenientBanner_canLoop, true);
         autoTurningTime = a.getInteger(R.styleable.ConvenientBanner_autoTurningTime, -1);
-        indicatorPadding = a.getDimensionPixelSize(R.styleable.ConvenientBanner_indicatorPadding,5);
+        indicatorPadding = a.getDimensionPixelSize(R.styleable.ConvenientBanner_indicatorPadding, 5);
+        page_indicatorId = new int[]{
+                a.getResourceId(R.styleable.ConvenientBanner_indicatorDrawableSelected, R.drawable.ic_page_indicator),
+                a.getResourceId(R.styleable.ConvenientBanner_indicatorDrawableUnselected, R.drawable.ic_page_indicator_focused),
+        };
         a.recycle();
         init(context);
     }
