@@ -29,8 +29,8 @@ android {
     }
 }
 
-def siteUrl = 'https://github.com/DaiFalin/MyLibrary'
-def gitUrl = 'https://github.com/DaiFalin/MyLibrary.git'
+def siteUrl = 'https://github.com/DaiFalin'
+def gitUrl = 'https://github.com/DaiFalin'
 
 group = 'com.dfl'
 version = '2.1.5'
