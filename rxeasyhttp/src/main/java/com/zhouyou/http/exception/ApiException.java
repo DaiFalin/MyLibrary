@@ -22,6 +22,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
 import com.zhouyou.http.model.ApiResult;
+import com.zhouyou.http.utils.HttpLog;
 
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
@@ -91,6 +92,8 @@ public class ApiException extends Exception {
     }
 
     public static ApiException handleException(Throwable e) {
+        e.printStackTrace();
+        HttpLog.e("ApiException", e);
         ApiException ex;
         if (e instanceof HttpException) {
             HttpException httpException = (HttpException) e;
